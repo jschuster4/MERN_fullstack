@@ -20,7 +20,7 @@ module.exports.findAll = (req, res) => {
 }
 
 module.exports.updateOne = (req, res) => {
-    Product.findOneAndUpdate({_id: req.params._id}, req.body)
+    Product.findOneAndUpdate({_id: req.params._id}, req.body, {runValidators: true})
     .then(updateOne => res.json(updateOne))
     .catch(err => res.json({message: "Error updating one product", error: err}))
 }
